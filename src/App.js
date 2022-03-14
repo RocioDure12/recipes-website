@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import MainSection from "./components/MainSection";
+import Box from "@mui/material/Box";
+import Busqueda from "./components/Busqueda";
+import { useState } from "react";
+import Navbar from "./components/NavBar"
 
-function App() {
+
+const App = () => {
+  const [valorDelInput, setValorDelInput] = useState("");
+  const [busqueda, setBusqueda] = useState("iphone");
+
+  const handleChange = (e) => {
+    setValorDelInput(e.target.value);
+  };
+
+  const handleClick = () => {
+    setBusqueda(valorDelInput);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Navbar />
+      <Box sx={{ mt: 12 }}>
+        <Busqueda
+          actualizarInput={handleChange}
+          escucharClickDelBoton={handleClick}
+        />
+      </Box>
+      <Box>
+        <MainSection busqueda={busqueda} />
+      </Box>
+    </Box>
   );
-}
+};
 
 export default App;
