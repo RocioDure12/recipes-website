@@ -7,7 +7,7 @@ import Navbar from "./components/NavBar"
 
 const App = () => {
   const [valorDelInput, setValorDelInput] = useState("");
-  const [busqueda, setBusqueda] = useState("iphone");
+  const [busqueda, setBusqueda] = useState("");
 
   const handleChange = (e) => {
     setValorDelInput(e.target.value);
