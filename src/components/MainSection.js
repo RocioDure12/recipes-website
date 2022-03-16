@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActionArea from "@mui/material/CardActionArea";
 import Container from "@mui/material/Container";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const MainSection = ({ busqueda }) => {
   const [recipes, setRecipes] = useState([]);
@@ -19,7 +20,7 @@ const MainSection = ({ busqueda }) => {
         setRecipes(data.hits);
         setData(data);
       });
-   
+
   }, [busqueda])
 
   return (
@@ -32,9 +33,9 @@ const MainSection = ({ busqueda }) => {
         alignItems="center"
       >
         {recipes.map((data) => (
-          <Grid item
-          >
+          <Grid item>
             <CardActionArea>
+             {/* <Link to={`/RecipeList/${data.recipe._links.self.href}`}>*/}
               <Card sx={{ maxWidth: 200, height: 300 }}>
                 <CardMedia
                   component="img"
@@ -47,10 +48,11 @@ const MainSection = ({ busqueda }) => {
                   <Typography gutterBottom variant="h6">
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-              
+
                   </Typography>
                 </CardContent>
               </Card>
+    
             </CardActionArea>
           </Grid>
         ))}
