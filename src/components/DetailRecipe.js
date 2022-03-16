@@ -13,7 +13,7 @@ const [recipe, setRecipes]=useState([])
     
       });
 
-  }, [params.idRecipe])
+  }, [params.linkRecipe])
 
   return(
     <div>

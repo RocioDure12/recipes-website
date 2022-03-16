@@ -16,7 +16,7 @@ return(
     <Navbar/> 
     <Routes>
       <Route  path="/" element={<RecipeList/>} />
-      <Route path="/RecipeList/id:Recipe" element={<DetailRecipe/>}/>
+      <Route path="/RecipeList/:id" element={<DetailRecipe/>}/>
     </Routes>
   </BrowserRouter>
 )

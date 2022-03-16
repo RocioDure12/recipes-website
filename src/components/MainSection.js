@@ -12,16 +12,20 @@ const MainSection = ({ busqueda }) => {
   const [recipes, setRecipes] = useState([]);
   const [data, setData] = useState({});
 
-
   useEffect(() => {
     fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${busqueda}&app_id=d76d54c6&app_key=c5f3fc901a11ea4aa0023d0a03af9e0e&imageSize=REGULAR`)
       .then((res) => res.json())
       .then((data) => {
-        setRecipes(data.hits);
+        const fetchedRecipes = data.hits.map((recipeData)=>{
+          recipeData["id"] = recipeData.recipe.uri.split("#")[1];
+          return recipeData;
+        });
+        setRecipes(fetchedRecipes);
         setData(data);
       });
 
   }, [busqueda])
+
 
   return (
     <Container>
@@ -35,7 +39,7 @@ const MainSection = ({ busqueda }) => {
         {recipes.map((data) => (
           <Grid item>
             <CardActionArea>
-             {/* <Link to={`/RecipeList/${data.recipe._links.self.href}`}>*/}
+              <Link to={`/RecipeList/${data.id}`}>
               <Card sx={{ maxWidth: 200, height: 300 }}>
                 <CardMedia
                   component="img"
@@ -52,7 +56,7 @@ const MainSection = ({ busqueda }) => {
                   </Typography>
                 </CardContent>
               </Card>
-    
+              </Link>
             </CardActionArea>
           </Grid>
         ))}
