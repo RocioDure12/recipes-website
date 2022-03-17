@@ -10,6 +10,7 @@ import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { useState} from "react";
+import {Link} from "react-router-dom"
  {/*const Nav = () => {
   return (
    <Box sx={{ flexGrow: 1}}>
@@ -57,13 +58,18 @@ export default () => {
         
       >
         <List>
-          
+          <Link to="/">
             <ListItem button key={"Item menu 1"}>
               <ListItemText primary={"Home"} />
             </ListItem>
+            </Link>
+
+            <Link to="Recipe">
             <ListItem button key={"Item menu 2"}>
               <ListItemText primary={"Vegan recipes"} />
             </ListItem>
+            </Link>
+
             <ListItem button key={"Item menu 3"}>
               <ListItemText primary={"Vegetarian recipes"} />
             </ListItem>
