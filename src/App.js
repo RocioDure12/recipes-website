@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Recipe from "./components/RecipeList"
 import RecipeList from "./components/RecipeList";
 import DetailRecipe from "./components/DetailRecipe";
+import PageNoFound from "./components/PageNoFound";
 
 
 
@@ -17,6 +18,7 @@ return(
     <Routes>
       <Route  path="/" element={<RecipeList/>} />
       <Route path="/RecipeList/:id" element={<DetailRecipe/>}/>
+      <Route path="*" element={<PageNoFound/>}/>
     </Routes>
   </BrowserRouter>
 )

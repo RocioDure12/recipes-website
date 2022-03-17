@@ -17,15 +17,10 @@ const [recipe, setRecipes]=useState([])
 
   return(
     <div>
-    <h1>detalle personaje</h1>
-    <article className="detalle">
-      <h2>Nombre: {recipe.label} </h2>
-      <img src={recipe.image} alt={recipe.label} />
-
-    </article>
-    </div> 
+      <h1>Receta especifica</h1>
+    </div>
   )
-
 }
+ 
 
 export default DetailRecipe;

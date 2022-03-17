@@ -64,7 +64,7 @@ export default () => {
             </ListItem>
             </Link>
 
-            <Link to="Recipe">
+            <Link to="">
             <ListItem button key={"Item menu 2"}>
               <ListItemText primary={"Vegan recipes"} />
             </ListItem>
